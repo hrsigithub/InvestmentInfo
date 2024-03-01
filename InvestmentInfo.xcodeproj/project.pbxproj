@@ -14,6 +14,9 @@
 		690FE1842B8C613E0050ED23 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 690FE1832B8C613E0050ED23 /* SwiftSoup */; };
 		690FE1872B8C61490050ED23 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 690FE1862B8C61490050ED23 /* Alamofire */; };
 		690FE1892B8C6DA90050ED23 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690FE1882B8C6DA90050ED23 /* MarketView.swift */; };
+		696195F42B919B2200C739AC /* MarketInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696195F32B919B2200C739AC /* MarketInfo.swift */; };
+		696195F62B919C1F00C739AC /* MinkabuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696195F52B919C1F00C739AC /* MinkabuInfo.swift */; };
+		696195F82B91A6BA00C739AC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696195F72B91A6BA00C739AC /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		690FE1782B8C5F370050ED23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690FE17B2B8C5F370050ED23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		690FE1882B8C6DA90050ED23 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		696195F32B919B2200C739AC /* MarketInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketInfo.swift; sourceTree = "<group>"; };
+		696195F52B919C1F00C739AC /* MinkabuInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinkabuInfo.swift; sourceTree = "<group>"; };
+		696195F72B91A6BA00C739AC /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,9 @@
 				690FE1782B8C5F370050ED23 /* Assets.xcassets */,
 				690FE17A2B8C5F370050ED23 /* Preview Content */,
 				690FE1882B8C6DA90050ED23 /* MarketView.swift */,
+				696195F32B919B2200C739AC /* MarketInfo.swift */,
+				696195F52B919C1F00C739AC /* MinkabuInfo.swift */,
+				696195F72B91A6BA00C739AC /* Util.swift */,
 			);
 			path = InvestmentInfo;
 			sourceTree = "<group>";
@@ -153,8 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				690FE1892B8C6DA90050ED23 /* MarketView.swift in Sources */,
+				696195F82B91A6BA00C739AC /* Util.swift in Sources */,
 				690FE1772B8C5F360050ED23 /* ContentView.swift in Sources */,
 				690FE1752B8C5F360050ED23 /* InvestmentInfoApp.swift in Sources */,
+				696195F62B919C1F00C739AC /* MinkabuInfo.swift in Sources */,
+				696195F42B919B2200C739AC /* MarketInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
