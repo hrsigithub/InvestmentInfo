@@ -25,7 +25,7 @@ class MinkabuInfo {
   static func getEmaxSlimSP500(completion: @escaping (MinkabuInfo?) -> Void) {
     let url = "https://itf.minkabu.jp/fund/03311187"
     
-    MarketInfo.getDoc(urlString: url) {
+    getDoc(urlString: url) {
       doc in
       
       guard let doc = doc else {

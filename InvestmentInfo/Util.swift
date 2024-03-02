@@ -6,6 +6,37 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftSoup
+
+
+public func getDoc(urlString: String, completion: @escaping (Document?) -> Void) {
+  
+  guard let url = URL(string: urlString) else {
+    print("Invalid URL")
+    return
+  }
+  
+  AF.request(url).responseString { response in
+    switch response.result {
+    case .success(let html):
+      //print(html) // HTMLコードを出力
+      do {
+        let doc = try SwiftSoup.parse(html)
+        completion(doc)
+        
+      } catch {
+        print("Error parsing HTML: \(error)")
+        completion(nil)
+      }
+      
+    case .failure(let error):
+      print(error)
+      completion(nil)
+    }
+  }
+}
+
 
 
 public func string2Date(target: String) -> Date? {
