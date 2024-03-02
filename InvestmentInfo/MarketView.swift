@@ -60,9 +60,9 @@ struct MarketView: View {
         print("Date: \(data.info.date)")
         print("Price: \(data.info.price)")
         print("Price Diff: \(data.info.priceDiff)")
-        print("Estimated Date: \(data.estimate.date)")
-        print("Estimated Price: \(data.estimate.price)")
-        print("Estimated Price Diff: \(data.estimate.priceDiff)")
+        print("Estimated Date: \(data.estimate?.date)")
+        print("Estimated Price: \(data.estimate?.price)")
+        print("Estimated Price Diff: \(data.estimate?.priceDiff)")
       }
 
               
