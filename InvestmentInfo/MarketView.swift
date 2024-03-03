@@ -11,8 +11,8 @@ import SwiftSoup
 
 
 struct MarketView: View {
-  private let sp500 =
-  MarketInfo(name: "S&P500", percent:0.03, value:5088.80, plusOrMinus: 1.77)
+  //  private let sp500 =
+  //  MarketInfo(name: "S&P500", percent:0.03, value:5088.80, plusOrMinus: 1.77)
   
   var body: some View {
     ZStack {
@@ -22,12 +22,12 @@ struct MarketView: View {
       
       VStack {
         HStack {
-          Text(sp500.name)
+          Text("")
             .padding(10)
             .background(Color(red:95/255, green: 95/255, blue: 95/255))
             .foregroundColor(Color(red:159/255, green:219/255, blue:228/255))
           
-          Text("🔼" + String(format: "%.2f", sp500.percent) + "%")
+          Text("🔼" + String(format: "%.2f", 3) + "%")
             .padding(10)
             .background(Color(red:219/255, green: 223/255, blue: 221/255))
           
@@ -35,12 +35,12 @@ struct MarketView: View {
             .foregroundColor(Color(red:65/255, green:167/255, blue:65/255))
           
           
-          Text(String(format: "%.2f", sp500.value))
+          Text(String(format: "%.2f", ""))
             .padding(10)
             .background(Color(red:219/255, green: 223/255, blue: 221/255))
             .foregroundColor(Color(red:142/255, green:142/255, blue:142/255))
           
-          Text(String(format: "%.2f", sp500.plusOrMinus) + "%")
+          Text(String(format: "%.2f", 0.3) + "%")
             .padding(10)
             .background(Color(red:219/255, green: 223/255, blue: 221/255))
             .foregroundColor(Color(red:65/255, green:167/255, blue:65/255))
@@ -49,6 +49,23 @@ struct MarketView: View {
       }
     }.task {
       print("表示したでえ")
+      
+      MarketInfo.getSp500() {  data in
+        guard let data = data else {
+          // データの取得に失敗した場合の処理
+          print("Failed to get data")
+          return
+        }
+        
+        // 取得したデータを使用して何かしらの処理を行う
+        print("Name: \(String(describing: data.name))")
+        print("value: \(data.value)")
+
+        
+      }
+      
+      
+      
       MinkabuInfo.getEmaxSlimSP500() { data in
         guard let data = data else {
           // データの取得に失敗した場合の処理
@@ -57,71 +74,15 @@ struct MarketView: View {
         }
         
         // 取得したデータを使用して何かしらの処理を行う
-        print("Date: \(data.info.date)")
+        print("Date: \(String(describing: data.info.date))")
         print("Price: \(data.info.price)")
         print("Price Diff: \(data.info.priceDiff)")
-        print("Estimated Date: \(data.estimate?.date)")
-        print("Estimated Price: \(data.estimate?.price)")
-        print("Estimated Price Diff: \(data.estimate?.priceDiff)")
+        print("Estimated Date: \(String(describing: data.estimate?.date))")
+        print("Estimated Price: \(String(describing: data.estimate?.price))")
+        print("Estimated Price Diff: \(String(describing: data.estimate?.priceDiff))")
       }
-
-              
-
-
-
-
-
-          
-          
-          
-        
-//        // NAME
-//        guard let entries = try? doc.select("p.THp.TcolN") else {
-//          print("Failed to select entries")
-//          return
-//        }
-//        
-//        // SP500
-//        guard let entry = entries[safe: 3] else {
-//          print("Entry at index 2 not found")
-//          return
-//        }
-//        
-//        guard let name = try? entry.text() else {
-//          print("Failed to get name")
-//          return
-//        }
-//        print("Name: \(name)")
-        //
-        // Value
-        
-          
-//          if let divElement = try doc.select("div.stock_price").first(),
-//
-//              
-//              let pElement = try divElement.select("p").first() {
-//            // divElementとpElementを印刷する
-//            print("divElement: \(try divElement.outerHtml())")
-//            // print("pElement: \(try pElement.outerHtml())")
-//            
-//            let text = try pElement.text()
-//            //print("Text inside <p>: \(text)") // "5,084.25" が出力される
-//          } else {
-//            print("No matching <div> or <p> element found")
-//          }
-//        } catch {
-//          print("Error parsing HTML: \(error)")
-//        }
-        
-        
-        
-      //}
     }
   }
-  
-  
-  
-  
 }
 
 

@@ -21,7 +21,6 @@ class MinkabuInfo {
   var info = PriceInfo()
   var estimate :PriceInfo?
   
-  
   static func getEmaxSlimSP500(completion: @escaping (MinkabuInfo?) -> Void) {
     let url = "https://itf.minkabu.jp/fund/03311187"
     
