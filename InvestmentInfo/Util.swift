@@ -10,6 +10,33 @@ import Alamofire
 import SwiftSoup
 
 
+//public func getDoc(urlString: String, completion: @escaping (Document?) -> Void) {
+//  
+//  guard let url = URL(string: urlString) else {
+//    print("Invalid URL")
+//    return
+//  }
+//  
+//  AF.request(url).responseString { response in
+//    switch response.result {
+//    case .success(let htmlData):
+//      print(htmlData) // HTMLコードを出力
+//      do {
+//        let doc = try SwiftSoup.parse(htmlData)
+//        completion(doc)
+//        
+//      } catch {
+//        print("Error parsing HTML: \(error)")
+//        completion(nil)
+//      }
+//      
+//    case .failure(let error):
+//      print(error)
+//      completion(nil)
+//    }
+//  }
+//}
+
 public func getDoc(urlString: String, completion: @escaping (Document?) -> Void) {
   
   guard let url = URL(string: urlString) else {
@@ -17,16 +44,20 @@ public func getDoc(urlString: String, completion: @escaping (Document?) -> Void)
     return
   }
   
-  AF.request(url).responseString { response in
+  AF.request(url).responseData { response in
     switch response.result {
-    case .success(let html):
-      //print(html) // HTMLコードを出力
-      do {
-        let doc = try SwiftSoup.parse(html)
-        completion(doc)
-        
-      } catch {
-        print("Error parsing HTML: \(error)")
+    case .success(let htmlData):
+      if let htmlString = String(data: htmlData, encoding: .utf8) {
+        do {
+          //print(htmlString) // HTMLコードを出力
+          let doc = try SwiftSoup.parse(htmlString)
+          completion(doc)
+        } catch {
+          print("Error parsing HTML: \(error)")
+          completion(nil)
+        }
+      } else {
+        print("Failed to decode HTML data")
         completion(nil)
       }
       
@@ -36,6 +67,8 @@ public func getDoc(urlString: String, completion: @escaping (Document?) -> Void)
     }
   }
 }
+
+
 
 
 

@@ -59,28 +59,27 @@ struct MarketView: View {
         
         // 取得したデータを使用して何かしらの処理を行う
         print("Name: \(String(describing: data.name))")
-        print("value: \(data.value)")
 
         
       }
       
       
       
-      MinkabuInfo.getEmaxSlimSP500() { data in
-        guard let data = data else {
-          // データの取得に失敗した場合の処理
-          print("Failed to get data")
-          return
-        }
-        
-        // 取得したデータを使用して何かしらの処理を行う
-        print("Date: \(String(describing: data.info.date))")
-        print("Price: \(data.info.price)")
-        print("Price Diff: \(data.info.priceDiff)")
-        print("Estimated Date: \(String(describing: data.estimate?.date))")
-        print("Estimated Price: \(String(describing: data.estimate?.price))")
-        print("Estimated Price Diff: \(String(describing: data.estimate?.priceDiff))")
-      }
+//      MinkabuInfo.getEmaxSlimSP500() { data in
+//        guard let data = data else {
+//          // データの取得に失敗した場合の処理
+//          print("Failed to get data")
+//          return
+//        }
+//        
+//        // 取得したデータを使用して何かしらの処理を行う
+//        print("Date: \(String(describing: data.info.date))")
+//        print("Price: \(data.info.price)")
+//        print("Price Diff: \(data.info.priceDiff)")
+//        print("Estimated Date: \(String(describing: data.estimate?.date))")
+//        print("Estimated Price: \(String(describing: data.estimate?.price))")
+//        print("Estimated Price Diff: \(String(describing: data.estimate?.priceDiff))")
+//      }
     }
   }
 }
